@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shusho kantei--</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <dl class='menu'>
+            <dt>aaa</dt>
+
+            <dd>
+                <ul>
+                    <li>aaa</li>
+                    <li class="active">aaa</li>
+                    <li>aaa</li>
+                </ul>
+            </dd>
+            <dt>bbb</dt>
+            <dd>
+                <ul>
+                    <li>bbb</li>
+                    <li>bbb</li>
+                    <li>bbb</li>
+                </ul>
+            </dd>
+        </dl>
+
+
+    </div>
+
+
+    <script src="jquery.min.js"></script>
+    <script>
+        $('.menu dd').hide();
+
+
+        $('.menu dt').on('click',function(){
+            $(this).next().slideToggle();
+        })
+
+        $('.menu li').on('click',function(){
+            
+            $('.active').removeClass('active');
+            $(this).addClass('active');
+            $(this).parents('dd').prev().addClass('active');
+        })
+        
+        $('document').ready(function(){
+            $('.menu li').each(function(){
+                if ($(this).hasClass('active')){
+                    $(this).parents('dd').prev().addClass('active');
+                    $(this).parents('dd').show();
+
+                }
+            })
+        })
+
+
+
+    </script>
+</body>
+
+</html>
